@@ -1,0 +1,362 @@
+Exercise 1 — demography
+1.1 Introduction
+The purpose of this exercise is to simulate the evolution of the global population over time.
+
+Download the source code available at the course webpage (https://d396qusza40orc.cloudfront.net/initprogcpp/assignments-data/population.cc) and complete it according to the instructions below.
+
+WARNING: you shall not modify neither the beginning nor the end of the provided file. It’s thus mandatory to proceed as follows:
+
+save the downloaded file as population.cc or population.cpp;
+
+write your code between these two provided comments:
+
+/*****************************************************
+ * Compléter le code à partir d'ici
+ *****************************************************/
+
+/*******************************************
+ * Ne rien modifier après cette ligne.
+ *******************************************/
+save and test your program to be sure that it works properly; try for instance the values used in the example given below;
+
+upload the modified file (still named population.cc or population.cpp) in "OUTPUT submission" (not in "Additional"!).
+
+1.2 Population of a given year
+The following formula :
+
+pend=pinit⋅exp(nb⋅τ)	
+allows to calculate the reached population pend starting from an initial population pinit after nb years have passed with a population growth rate of τ.
+
+You are asked to complete the program below:
+
+// ===== PARTIE 1 =====
+so that it:
+
+asks the user to input a year, yearend, strictly superior to anneeInitiale (given in the provided program); the user will be asked to input the year again if the year is not strictly superior to anneeInitiale;
+
+calculates and prints the reached population in yearend according to the execution example below and by applying the formula given above.
+
+The printing instruction will be identical to the one provided for printing the initial population (it prints only 4 digits).
+
+Indications:
+
+the exponential function is written exp() in C++, for example : exp(x);
+
+the growth rate is given as a percentage in the program; you will have to divide it by 100 to obtain the suitable values.
+
+Execution example
+
+====---- PARTIE 1 ----====
+Population en 2011 : 7
+Quelle année (> 2011) ? 2008
+Quelle année (> 2011) ? 2010
+Quelle année (> 2011) ? 2016
+Population en 2016 : 7.433
+The program therefore prints here the population on earth in 2016 given that it has reached 7 billions in 2011 and that the growth is estimated to 1.2% yearly.
+
+1.3 Evolution of the population
+We now want to ensure that the program also prints the evolution of the population every year, until this reaches a given number in billions, provided by the user.
+
+Complete the program below:
+
+ cout << endl << "====---- PARTIE 2 ----====" << endl;
+so that it:
+
+asks the user to input a target population (how many billions we wish to reach) ; this target population will be strictly superior to populationInitiale (given in the provided program); the user will be asked to input it again if the year is not strictly superior to populationInitiale;
+
+calculates and prints the population for every year that has to pass until the target population is reached, according to the execution example below; the display formatting for every year will be identical to the one used until now (provided).
+
+Execution example
+
+====---- PARTIE 1 ----====
+Population en 2011 : 7
+Quelle année (> 2011) ? 2021
+Population en 2021 : 7.892
+
+====---- PARTIE 2 ----====
+Combien de milliards (> 7) ? 6.5
+Combien de milliards (> 7) ? 7
+Combien de milliards (> 7) ? 8.5
+Population en 2012 : 7.085
+Population en 2013 : 7.17
+Population en 2014 : 7.257
+Population en 2015 : 7.344
+Population en 2016 : 7.433
+Population en 2017 : 7.523
+Population en 2018 : 7.613
+Population en 2019 : 7.705
+Population en 2020 : 7.798
+Population en 2021 : 7.892
+Population en 2022 : 7.988
+Population en 2023 : 8.084
+Population en 2024 : 8.182
+Population en 2025 : 8.281
+Population en 2026 : 8.381
+Population en 2027 : 8.482
+Population en 2028 : 8.584
+
+1.4 We refine the simulation
+We wish now to be a bit more realistic by taking into account over-population effects: each time that the global population doubles, the growth rate is divided by two.
+
+Complete now your program below:
+
+cout << endl << "====---- PARTIE 3 ----====" << endl;
+so that it prints the population every year until the desired target population is reached (which remains the same as the one provided by the user in part 2).
+
+You will also have to print the growth rate, by following a format strictly identical to the one displayed in the execution example below ("; taux de croissance : X%").
+
+Execution example
+
+====---- PARTIE 1 ----====
+Population en 2011 : 7
+Quelle année (> 2011) ? 2016
+Population en 2016 : 7.433
+
+====---- PARTIE 2 ----====
+Combien de milliards (> 7) ? 29
+Population en 2012 : 7.085
+Population en 2013 : 7.17
+Population en 2014 : 7.257
+Population en 2015 : 7.344
+Population en 2016 : 7.433
+Population en 2017 : 7.523
+Population en 2018 : 7.613
+Population en 2019 : 7.705
+Population en 2020 : 7.798
+Population en 2021 : 7.892
+...
+Population en 2130 : 29.19
+
+====---- PARTIE 3 ----====
+Population en 2012 : 7.085 ; taux de croissance : 1.2 %
+Population en 2013 : 7.17 ; taux de croissance : 1.2 %
+Population en 2014 : 7.257 ; taux de croissance : 1.2 %
+Population en 2015 : 7.344 ; taux de croissance : 1.2 %
+Population en 2016 : 7.433 ; taux de croissance : 1.2 %
+Population en 2017 : 7.523 ; taux de croissance : 1.2 %
+Population en 2018 : 7.613 ; taux de croissance : 1.2 %
+Population en 2019 : 7.705 ; taux de croissance : 1.2 %
+Population en 2020 : 7.798 ; taux de croissance : 1.2 %
+...
+Population en 2068 : 13.87 ; taux de croissance : 1.2 %
+Population en 2069 : 14.04 ; taux de croissance : 0.6 %
+Population en 2070 : 14.12 ; taux de croissance : 0.6 %
+...
+Population en 2195 : 29.02 ; taux de croissance : 0.3 %
+The above example is just an excerpt. In the place of "...", all the intermediate years will of course be printed.
+
+Notice that in the above example:
+
+the population will double in 2069, when it gets from 7 billions to 14 billions ;
+
+it will double again in 2185, when it gets from 14 billions to 28 billions.
+
+Exercise 2 — Preys and predators
+2.1 Introduction
+More advanced than the exponential growth model that we use in the previous exercise, the predator–prey model (a.k.a. Lotka-Volterra model), allows us to simulate the growth of two species related as preys and predators, as for instance rabbits ("lapins" in French) and foxes ("renards").
+
+Download the source code available at the course webpage (https://d396qusza40orc.cloudfront.net/initprogcpp/assignments-data/predproie.cc) and complete it according to the instructions below.
+
+WARNING: you shall not modify neither the beginning nor the end of the provided file. It’s thus mandatory to proceed as follows:
+
+save the downloaded file as predproie.cc or predproie.cpp;
+
+write your code between these two provided comments:
+
+/*****************************************************
+ * Compléter le code à partir d'ici
+ *****************************************************/
+
+/*******************************************
+ * Ne rien modifier après cette ligne.
+ *******************************************/
+save and test your program to be sure that it works properly; try for instance the values used in the example given below;
+
+upload the modified file (still named predproie.cc or predproie.cpp) in "OUTPUT submission" (not in "Additional"!).
+
+2.2 Initial Populations
+In the first part of this exercise, you are asked to complete the program below:
+
+// ===== PARTIE 1 =====
+// Saisie des populations initiales
+so that it:
+
+asks the user to input a inital number of foxes (renards_i), not less than 2; the user will be asked to input that number again if it is not superior or equal to 2;
+
+then asks the user to input a inital number of rabbits (lapins_i), not less than 5; there again the user will be asked to input it as long as it’s incorrect.
+
+To ensure correct format for the questions, we already wrote them in the provided code. You shall not change those lines (but use them).
+
+Execution example
+
+Combien de renards au départ (>= 2) ? 1
+Combien de renards au départ (>= 2) ? 3
+Combien de lapins au départ  (>= 5) ? 4
+Combien de lapins au départ  (>= 5) ? 20
+
+2.3 Evolution of the populations
+We here wish to model the evolution of the fox and rabbit populations.
+
+Complete the program below:
+
+// ===== PARTIE 2 =====
+// Première simulation
+cout <<  endl << "***** Le taux d'attaque vaut "<< taux_attaque * 100 << "%" <<  endl;
+so that it:
+
+initialises the populations of foxes and rabbits according to the former user’s input;
+
+computes (see below) and displays the fox and rabbit populations from the first month to duree (so from 1 to 50), incrementing it 1 by 1.
+
+The growth of the rabbits is such that the number of rabbits is each time multiply by 
+(1.0 + taux_croissance_lapins - taux_attaque * nb_renards ) 
+where nb_renards is the number of foxes before the new computation below.
+
+It means that the new number of rabbits is equal to the previous number of rabbits plus the rabbits that were born minus the rabbits that were killed by the foxes. The number of rabbits killed depends on the number of foxes as the more foxes, the more eaten rabbits.
+
+The growth of the foxes is such that their number is each time multiplied by 
+(1.0 + taux_attaque * nb_lapins * taux_croissance_renards - taux_mortalite) 
+where nb_lapins is the number of rabbits obtained by the former computation.
+
+The number of foxes increases by the number of foxes borned minus the number of foxes that died. The number of newborn foxes depends on the number of rabbits because the foxes need to catch rabbits in order to feed themself, reproduce and feed their offspring.
+
+The former formulas allow the number of foxes and rabbits to be negative. You thus have to add code that will set these numbers to zero whenever they become negative.
+
+Notice: Both numbers of rabbits and foxes are represented as double so as to keep enough precision on the computation. Non-integer values could be interpreted as the uncertainty we have about the exact values of animals actually living.
+
+Execution example
+
+Combien de renards au départ (>= 2) ? 20
+Combien de lapins au départ  (>= 5) ? 500
+
+***** Le taux d'attaque vaut 1%
+Après 1 mois, il y a 550 lapins et 18.8 renards
+Après 2 mois, il y a 611.6 lapins et 17.75 renards
+Après 3 mois, il y a 686.5 lapins et 16.84 renards
+Après 4 mois, il y a 776.9 lapins et 16.08 renards
+Après 5 mois, il y a 885 lapins et 15.47 renards
+Après 6 mois, il y a 1014 lapins et 15.02 renards
+Après 7 mois, il y a 1165 lapins et 14.74 renards
+Après 8 mois, il y a 1343 lapins et 14.64 renards
+Après 9 mois, il y a 1550 lapins et 14.75 renards
+Après 10 mois, il y a 1786 lapins et 15.1 renards
+Après 11 mois, il y a 2052 lapins et 15.75 renards
+Après 12 mois, il y a 2345 lapins et 16.76 renards
+Après 13 mois, il y a 2655 lapins et 18.23 renards
+Après 14 mois, il y a 2968 lapins et 20.27 renards
+Après 15 mois, il y a 3256 lapins et 23.06 renards
+Après 16 mois, il y a 3482 lapins et 26.76 renards
+Après 17 mois, il y a 3595 lapins et 31.54 renards
+Après 18 mois, il y a 3540 lapins et 37.46 renards
+Après 19 mois, il y a 3276 lapins et 44.32 renards
+Après 20 mois, il y a 2807 lapins et 51.5 renards
+Après 21 mois, il y a 2203 lapins et 57.91 renards
+Après 22 mois, il y a 1588 lapins et 62.33 renards
+Après 23 mois, il y a 1075 lapins et 64.02 renards
+Après 24 mois, il y a 709.1 lapins et 63.12 renards
+Après 25 mois, il y a 474.3 lapins et 60.39 renards
+Après 26 mois, il y a 330.1 lapins et 56.64 renards
+Après 27 mois, il y a 242.2 lapins et 52.47 renards
+Après 28 mois, il y a 187.8 lapins et 48.24 renards
+Après 29 mois, il y a 153.5 lapins et 44.14 renards
+Après 30 mois, il y a 131.8 lapins et 40.27 renards
+Après 31 mois, il y a 118.3 lapins et 36.67 renards
+Après 32 mois, il y a 110.4 lapins et 33.35 renards
+Après 33 mois, il y a 106.7 lapins et 30.31 renards
+Après 34 mois, il y a 106.4 lapins et 27.54 renards
+Après 35 mois, il y a 109 lapins et 25.02 renards
+Après 36 mois, il y a 114.4 lapins et 22.73 renards
+Après 37 mois, il y a 122.7 lapins et 20.67 renards
+Après 38 mois, il y a 134.2 lapins et 18.8 renards
+Après 39 mois, il y a 149.2 lapins et 17.13 renards
+Après 40 mois, il y a 168.4 lapins et 15.62 renards
+Après 41 mois, il y a 192.6 lapins et 14.27 renards
+Après 42 mois, il y a 222.9 lapins et 13.06 renards
+Après 43 mois, il y a 260.7 lapins et 11.99 renards
+Après 44 mois, il y a 307.7 lapins et 11.04 renards
+Après 45 mois, il y a 366 lapins et 10.21 renards
+Après 46 mois, il y a 438.5 lapins et 9.484 renards
+Après 47 mois, il y a 528.4 lapins et 8.868 renards
+Après 48 mois, il y a 640.1 lapins et 8.356 renards
+Après 49 mois, il y a 778.6 lapins et 7.948 renards
+Après 50 mois, il y a 950.3 lapins et 7.648 renards
+Notice: If you want to observe interesting evolution of the populations, the number of rabbits should be way superior than the number of foxes. Otherwise, the foxes are killing all the rabbits before they had time to reproduce. Furthermore, avoid too small populations at the beginning. Ten foxes and 1000 rabbits or 20 foxes and 500 rabbits are interesting examples of stable populations’ dynamics.
+
+2.4 Effect of the attack rate
+We want now to simplify the display in order to not display the evolution of the two populations at each time t but only the final populations after 50 months. In addition, we want alert messages to indicate whether the specie was close from extinction or if it has disappeared. Then, by using this simpler display, we will evaluate the effect of the attack rate on the two populations dynamic.
+
+Now complete the program below:
+
+// ===== PARTIE 3 =====
+// Variation du taux d'attaque
+cout << endl;
+2.4.1 Alert message
+
+In order to simplify the display, we won’t display the population evolution anymore at every time t. Copy and paste your entire loop for from part 2 with the equations that simulate the population evolution in part 3 and then take the display command out of the loop. The aim is that the program display only at the end of the simulation the number of remaining foxes and rabbits. Be careful to indicate the right number of months. Modify your code so that alert messages are displayed once the simulation is done (look at the execution example below):
+
+–
+if, during the simulation, the number of foxes or of rabbits go below 5, an alert message should indicate:
+
+Les ... ont été en voie d'extinction
+(with ... being either renards or lapins).
+
+–
+if during the simulation the number of foxes or rabbits go below 5 but increases back above 5 afterword, the previous message should be displayed (as we get below 5) but followed by
+
+mais la population est remontée ! Ouf !
+If the population of foxes or rabbits go below two, we are assuming that the specie can't reproduce aynmore. In this situation, the number of foxes or rabbits should be set to zero (during the simulation) and the following message displayed (at the end of the simulation):
+
+et les ... ont disparus :-(
+(with ... being either renards or lapins).
+
+If during the simulation, none of the previously described event happened, display at the end of the simulation
+
+Les lapins et les renards ont des populations stables.
+Modify also your code so as to stop the simulation when the numbers of both foxes and rabbits are both zero. Look for example at what happened in the example below for attack rate of 5%: the simulation stopped at month 25 rather than the usual 50.
+
+2.4.2 Attack rate modification
+
+Once you have set up the display, modify your program so that it:
+
+asks the user to enter the initial attack rate (in percent) between 0.5 and 6; this initial rate should be asked again if the conditions are not satisfied; notice that here what ask this rate in percents; it should thus be divided by 100 to be used in the former formulas;
+
+asks the user to enter the final attack rate (in percent) between the previously entered initial rate and 6; this final rate should be asked again if the conditions are not satisfied;
+
+run the simulation for all the attack rates from the initial rate to the final rate (not included) by incrementing the rate of 1% each time. For each loop iteration display the corresponding attack rate
+
+***** Le taux d'attaque vaut ...%
+Execution example (20 foxes and 500 rabbits at the beginning)
+
+taux d'attaque au départ en % (entre 0.5 et 6) ? 7
+taux d'attaque au départ en % (entre 0.5 et 6) ? 1
+taux d'attaque à la fin  en % (entre 1 et 6) ? 0.5
+taux d'attaque à la fin  en % (entre 1 et 6) ? 6
+
+***** Le taux d'attaque vaut 1%
+Après 50 mois, il y a 950.3 lapins et 7.648 renards
+Les lapins et les renards ont des populations stables.
+
+***** Le taux d'attaque vaut 2%
+Après 50 mois, il y a 205 lapins et 10.1 renards
+Les lapins et les renards ont des populations stables.
+
+***** Le taux d'attaque vaut 3%
+Après 50 mois, il y a 0 lapins et 16.9 renards
+Les renards ont été en voie d'extinction
+mais la population est remontée ! Ouf !
+Les lapins ont été en voie d'extinction
+et les lapins ont disparus :-(
+
+***** Le taux d'attaque vaut 4%
+Après 50 mois, il y a 9774 lapins et 0 renards
+Les renards ont été en voie d'extinction
+et les renards ont disparus :-(
+Les lapins ont été en voie d'extinction
+mais la population est remontée ! Ouf !
+
+***** Le taux d'attaque vaut 5%
+Après 25 mois, il y a 0 lapins et 0 renards
+Les renards ont été en voie d'extinction
+et les renards ont disparus :-(
+Les lapins ont été en voie d'extinction
+et les lapins ont disparus :-(

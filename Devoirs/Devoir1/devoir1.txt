@@ -1,0 +1,41 @@
+Exercise 1 — Hello world
+Write a simple program that prints the message "Hello world!" (followed by an end of line).
+
+Your program will be graded using two automatic tests, one "permissive", that accepts slight variations in the output (spaces and letter case), and another one, strict, that requires the output to be strictly identical to the described one (including spaces, end of lines and letter case).
+
+The file to be submitted is the source file (.cc or .cpp), not the executable file!.
+
+Exercise 2 — Swaping three values
+2.1 Instructions
+The goal of this exercice is to swap the value of three variables.
+
+Download the source code available at the course webpage (https://d396qusza40orc.cloudfront.net/initprogcpp/assignments-data/swap3.cc) and complete it according to the instructions below.
+
+WARNING: you shall not modify neither the beginning nor the end of the provided file. It’s thus mandatory to proceed as follows:
+
+save the downloaded file as swap3.cc or swap3.cpp;
+
+write your code between these two provided comments:
+
+/*****************************************************
+ * Compléter le code à partir d’ici
+ *****************************************************/
+
+/*******************************************
+ * Ne rien modifier après cette ligne.
+ *******************************************/
+save and test your program to be sure that it works properly; try for instance the values used in the example given below;
+
+upload the modified file (still named swap3.cc or swap3.cpp) in "OUTPUT submission" (not in "Additional"!).
+
+The downloaded code aims at asking the user to input three values, and printing them once switch around. However, the code to move these values around is missing and you have to write it.
+
+You are thus asked to complete the provided program (between the comments as explained above) so as to perform the following permutation : the content of a should go into b, the initial value of b into c and the initial value of c into a, as illustrated in the execution example below.
+
+2.2 Execution example
+Entrez la premiere  valeur : 51
+Entrez la deuxieme  valeur : 876
+Entrez la troisieme valeur : 235
+Les valeurs entrees sont : a = 51, b = 876 et c = 235
+Permutation: a ==> b, b ==> c, c ==> a
+Les valeurs permutees sont : a = 235, b = 51 et c = 876

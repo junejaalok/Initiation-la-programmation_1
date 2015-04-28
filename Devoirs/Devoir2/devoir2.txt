@@ -1,0 +1,58 @@
+Exercise 1 — Guess who
+The purpose of this exercise is to write a C++ program that asks questions to the users in order to guess which character (among a list known in advance) the user has in mind.
+
+The program can only ask questions that have yes or no as an answer (the user will reply to the questions of the program with 0 for no, and 1 for yes ; see the execution example which is given further below).
+
+The 5 possible characters are: Mlle Rose, Professeur Violet, Colonel Moutarde, Révérend Olive and Mme Leblanc.
+
+Only Colonel Moutarde has a mustache ("moustache" in French), all of them wear glasses ("lunettes" in French) except Mlle Rose, and Professeur Violet is the only one to have a hat ("chapeau" in French).
+
+1.1 Instructions
+Download the source code available at the course webpage (https://d396qusza40orc.cloudfront.net/initprogcpp/assignments-data/cluedo1.cc) and complete it according to the instructions below.
+
+WARNING: you shall not modify neither the beginning nor the end of the provided file. It’s thus mandatory to proceed as follows:
+
+save the downloaded file as cluedo1.cc or cluedo1.cpp;
+
+write your code between these two provided comments:
+
+/*****************************************************
+ * Compléter le code à partir d’ici
+ *****************************************************/
+
+/*******************************************
+ * Ne rien modifier après cette ligne.
+ *******************************************/
+save and test your program to be sure that it works properly; try for instance the values used in the example given below;
+
+upload the modified file (still named cluedo1.cc or cluedo1.cpp) in "OUTPUT submission" (not in "Additional"!).
+
+Pay attention to the fact that the given code contains already the endl in the end. You should therefore be careful not to use endl in your output, neither add any letters or symbols either, except those already contained in the name of the guessed character. We expect from your code to output only the name of one character, that’s all. See the execution example further below.
+
+1.2 Execution example
+It is mandatory that your code respects the following formatting (last line) :
+
+Pensez a un personnage : Mlle Rose, le Professeur Violet, le Colonel
+Moutarde, le Reverend Olive ou Mme Leblanc.
+
+Votre personnage a-t-il des moustaches (1 : oui, 0 : non) ? 0
+Votre personnage porte-t-il des lunettes ? 1
+Votre personnage porte-t-il un chapeau ? 0
+Est-ce que votre personnage est un homme ? 1
+==> Le personnage auquel vous pensez est le Reverend Olive
+which means that it only adds the name of the found character, without any other punctuation symbol. For those who know French, please notice also that, for portability reasons, we did not write "Révérend" but "Reverend" in the output. Please stick to this convention.
+
+Note:
+
+We assume that the user respects the rules. If the answers of the users are incoherent or incorrect, the output of the program is unspecified, which means that it could be whatever according to your choice.
+
+Since you cannot modify the provided pieces of code, be aware that your program will "speak" French (our grader will not be able to deal with translations).
+
+Exercise 2 — Guess who in three questions
+Copy the program of the previous exercise into a new program,for instance, cluedo2.cc (or .cpp), and modify this new program so that it finds the right answer after maximum 3 questions (not necessarily the same questions each time). As for the previous exercise, each question must be about one single characteristic only.
+
+Pay attention to work on a new copy (e.g. cluedo2.cc, or cluedo2.cpp) and not to modify the previous program (cluedo1.cc).
+
+Pay also attention not to modify the text of the questions (but only to move them for changing the order); our automatic grader is based on the text of these questions in order to evaluate the program submitted. (You can however move the text « (0 : oui, 1 : non) » of one question to another if you wish. It is the the significant text, at the beginning of the question, that you should not modify.)
+
+Otherwise, here you are free to modify the rest of the program as you want (and actually you should do it!).

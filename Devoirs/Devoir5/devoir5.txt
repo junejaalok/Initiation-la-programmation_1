@@ -1,0 +1,292 @@
+Exercise 1 — Most frequent element in an array
+The purpose of this exercise is to write a program that identifies the most frequently occurring number in an array of integers. For example, for the following array :
+
+{2, 7, 5, 6, 7, 1, 6, 2, 1, 7}
+your program is supposed to find that the most occurring number is 7 and that its frequency is 3.
+
+Download the source code available at the course webpage (https://d396qusza40orc.cloudfront.net/initprogcpp/assignments-data/freqmax.cc) and complete it according to the instructions below.
+
+WARNING: you shall not modify neither the beginning nor the end of the provided file. It’s thus mandatory to proceed as follows:
+
+save the downloaded file as freqmax.cc or freqmax.cpp;
+
+write your code between these two provided comments:
+
+/*****************************************************
+ * Compléter le code à partir d'ici
+ *****************************************************/
+
+/*******************************************
+ * Ne rien modifier après cette ligne.
+ *******************************************/
+save and test your program to be sure that it works properly; try for instance the values used in the example given below;
+
+upload the modified file (still named freqmax.cc or freqmax.cpp) in "OUTPUT submission" (not in "Additional"!).
+
+Execution Example
+With the provided code, your program should display:
+
+Le nombre le plus fréquent dans le tableau est le 7 (3 x).
+Your program must work for any vector of integers given as input. You can however suppose that the arrays used for testing are always non-empty. Note that we didn’t make any assumption about the range of the values contained in the array. We could perfectly have an array like { 2147483647, -2147483648, -2147483648 }…
+
+Moreover, in a given array there might be more than one number which occur the most. In such cases, your program must output the number that appears first in the array. E.g., for array tab1 = {2, 7, 5, 6, 7, 1, 6, 2, 1, 7, 6}, 6 and 7 are the most occurring numbers (both appear 3 times), but as 7 appears first in the array, the program will only keep 7 as the most frequently occuring element and will display:
+
+Le nombre le plus fréquent dans le tableau est le 7 (3 x).
+Exercise 2 — Landfill
+2.1 Introduction
+Your municipality searches the best location to place its landfill. The goal is to place it as far as possible from the residencies. The residencies are represented by their coordinates x and y in a two dimensional map. As the municipality has already a hint about the place where they want to place the landfill, they want to verify that the distance between the desired position and the closest residency is reasonable and to place it in an optimal way close to the targeted place.
+
+Here is an example of the initial configuration, where the red circles represent the residencies and the blue square, the desired position for the landfill:
+
+map
+Download the source code available at the course webpage (https://d396qusza40orc.cloudfront.net/initprogcpp/assignments-data/decharge.cc) and complete it according to the instructions below.
+
+WARNING: you shall not modify neither the beginning nor the end of the provided file. It’s thus mandatory to proceed as follows:
+
+save the downloaded file as decharge.cc or decharge.cpp;
+
+write your code between these two provided comments:
+
+/*****************************************************
+ * Compléter le code à partir d'ici
+ *****************************************************/
+
+/*******************************************
+ * Ne rien modifier après cette ligne.
+ *******************************************/
+save and test your program to be sure that it works properly; try for instance the values used in the example given below;
+
+upload the modified file (still named decharge.cc or decharge.cpp) in "OUTPUT submission" (not in "Additional"!).
+
+Therefore, your job is to complete the given program to find the closest residencie and then find the ideal location for the landfill.
+
+2.2 Distance computation
+In the given file, define:
+
+A structure Point to represent a point on a 2D plane (to describe e.g the position of a residencie or the landfill)
+
+A function
+
+        double distance(Point const& p1, Point const& p2);
+        
+which returns the distance between the two given points.
+
+To calculate the distance between two points (x1, y1) and (x2, y2), you will use the following formula:
+
+(x1−x2)2+(y1−y2)2‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾√	
+See the example below for some test values. We remind you that the square-root function is named sqrt in C++ (library cmath).
+
+2.3 Closest residency
+Define the type Commune as a dynamic array of Point’s: These will be the list of coordinates of all the residencies.
+
+Complete your program by defining the following function:
+
+Point plus_proche(Point const& depart, Commune const& village);
+which returns, in the form of Point, the closest residencie among all of the residencies given (as argument village) to the given point (as argument depart).
+
+See the example below for some test values.
+
+2.4 Three closest residencies
+Define a new type Triangle, corresponding to three Points, and complete your program by definining an additional function:
+
+Triangle trois_plus_proches(Point const& depart, Commune const& village);
+that returns the three closest residencies among all the given residencies to the given point depart.
+
+Hint: the 2nd closest residencies is the closest residency in a Commune where the first one is no longer there.
+
+See the example below for some test values.
+
+2.5 Other place
+Finally, finish your program by defining the function
+
+Point proposition(Point const& depart, Commune const& village);
+which returns the geometric center of the three closest residencies to the given initial point.
+
+The geometric center would give us the best compromise for the three closest residencies. It is defined as the point whose x coordiate is the mean of the x coordinates of the three given points and whose y coordinate is the mean of the y coordinates of the three given points:
+
+x=(x1+x2+x3)/3	
+y=(y1+y2+y3)/3	
+Execution example
+
+Pour le point (4, 3) dans le village : {
+   (1, 5)
+   (1.25, 0.5)
+   (3, 2)
+   (5, 6.25)
+   (5.5, 1.5)
+}, les distances à toutes les habitations sont :
+   (1, 5) --> 3.60555
+   (1.25, 0.5) --> 3.71652
+   (3, 2) --> 1.41421
+   (5, 6.25) --> 3.40037
+   (5.5, 1.5) --> 2.12132
+, le point le plus proche est (3, 2),
+les trois points les plus proches sont {
+   (3, 2)
+   (5.5, 1.5)
+   (5, 6.25)
+}, et la nouvelle proposition de position est (4.5, 3.25).
+Exercise 3 — Julius Caesar encryption
+3.1 Introduction
+Julius Caesar was using a really easy encryption system where each letter of a message was replaced by a letter from a later position in the alphabet. For example, for a shift of 4, ’A’ becomes ’E’, ’B’ becomes ’F’ until ’Z’ that becomes ’D’.
+
+The aim of this exercise is to apply this technique to encrypt character strings. To do so, you will write a program as described below.
+
+3.2 Character’s encoding
+Write a C++ program with a function code (you shall have the exact same name) which is taking a character and a integer as parameters and returns a "shifted" corresponding character if it is a capital or lower-case letter, or return the same character unchanged, otherwise. For example, with a shift of 4 (second parameter) :
+
+for ’a’, this function will return ’e’ ;
+
+for ’A’, it will return ’E’ ;
+
+for ’Z’, it will return ’D’ ;
+
+and for ’!’, it will return ’!’ (unchanged).
+
+The procedure goes as follows:
+
+create a function decale (it means "shift" in French, please beware to not change the name of the function!) which
+
+–
+takes three parameters: a character c, a character debut (means "beginning" in French) and a integer decalage (means "shift amount"),
+
+–
+as long as decalage is strictly negative, you should add 26 to it;
+
+–
+and return a character following the formula below:
+
+debut + (((c - debut) + decalage) % 26)
+
+(Note : those of you who are using the option -Wconversion for the compilation will have a warning message from the compiler that you can simply ignore)
+
+knowing that c is the character and d is the shift given by the function code :
+
+–
+if c is equal or bigger than ’a’ and equal or smaller than ’z’ (we can compare characters with the same operator than numbers) so we can take the result of calling decale into the variable c beginning at ’a’ with the shift d ;
+
+–
+if c is equal or bigger than ’A’ but is smaller or equal to ’Z’, proceed as above but with the start (debut) at ’A’;
+
+–
+otherwise return c unchanged.
+
+3.3 String encoding
+Afterwards, write a function code (you shall keep this name at it is) which takes as parameter a string of character and an integer, and which returns a new string of characters after applying to each of the received characters, the previous function code.
+
+For example, this function will return :
+
+Jycid qererxw when it receives the string Fuyez manants and a shift of 4 ;
+
+Laekf sgtgtzy for the same string with a shift of 6 ;
+
+Bquav iwjwjpo for the same string with a shift of −4 ;
+
+Ezid-zsyw zy qiw 3 glexw ix qiw 2 glmirw ? for 
+Avez-vous vu mes 3 chats et mes 2 chiens ? and a shift of 4.
+
+3.4 String decoding
+Write a function decode (keep this name as it is) which is taking as parameter a string of characters and an integer, and decode the received string (with the received shift) and return the decoded string.
+
+You simply need to write that decoding is in fact encoding but with a shift in the opposite direction. This can be done with only one instruction.
+
+And do not forget to test your functions…
+
+Note: In order to be graded, your program shall have a main() function that compiles, whatever it is, even empty.
+
+Exercise 4 — Elias encoding
+4.1 Introduction
+This exercise is aiming at building a binary code (sequence of 0 and 1) to encode integers in an unambiguous sequence. For example :
+
+if we are choosing to encode the integer 1 with the binary sequence "1" and the integer 3 with its usual binary code "11" this will beambiguous. Indeed if a transmitter is sending the binary sequence "11", the receiver does not know whether he should interpret it as a single 3 or as a sequence of two 1s;
+
+however, if we are encoding 1 using "1" and 3 using for instance "001", this is no longer ambiguous (at least for thes two integers, 1 and 3).
+
+The advantage of unambiguous codes is to be able to send information simple to decode, but still briefly. The aim of this exercise is too write functions that will allow to calculate such a code, named Elias encoding, from it’s inventor’s name.
+
+In order to do so, we will go through four steps and ask you to create five functions.
+
+4.2 Function convert
+The first function, named convert, is a tool-function that we will use in order to convert a int into a char following the rule below :
+
+if the integer received as a parameter is equal to 1, return the character ’1’ ;
+
+otherwise return the character ’0’.
+
+4.3 Function Z0
+The first code that we need in order to build the Elias encoding of a number is simply its binary code, called here Z0 :
+
+n	1	2	3	4	5	6	7	8
+Z0(n)	1	10	11	100	101	110	111	1000
+We can convert a number in its binary equivalent using only a sequence of two operations: the modulo (%) and the division. Because we want the binary code, we will do these using number 2.
+
+The process is the following:
+
+For every given n, we start by calculating its modulo (n%2): if this number is even, the result is 0, if the number is odd the result is 1. The resulting digit is the last (rightmost one) digit of the binary code we want to construct.
+
+Then we divide n by 2 (integer division). The resulting number, however, is not part of the binary code: we have to apply the modulo 2 to it. The result of the modulo 2 (0 or 1) of that new number is the second digit (starting from the right) of the binary code we are building.
+
+The procedure continues as such as long as n is not equal to zero: add the character corresponding to n % 2 (by using the function convert) and divide n by 2 (Note: pay attention whether you should use a while or a do-while loop).
+
+In summary to obtain the binary code of n=6 :
+
+6%2 gives 0
+
+6/2=3 so n is now equal to 3
+
+3%2 gives 1
+
+the integer division of 3 by 2 gives 1 so n=1
+
+1%2 gives 1
+
+the integer division of 1 by 2 gives 0 so n is now equal to 0 the loop should stop.
+
+The binary code of 6 is 110.
+
+Create a function named "Z0" (pay attention to use this very name) which takes as parameter an integer n and returns a string of character corresponding to the binary code of n as it is described previously.
+
+Be careful, the addition of each new symbol (here the character returned by the convert function) should be done at the front of the returned string and not at its end.
+
+Test your function with the values given above.
+
+4.4 Function Z0t
+We can observe that the code Z0 of any integer is always starting with a ’1’ (on the left). The code « Z0 truncated » correspond to the code Z0, without this ’1’ on the left :
+
+n	1	2	3	4	5	6	7	8
+Z0t(n)		0	1	00	01	10	11	000
+Note that it is indeed empty for the value 0.
+
+Create a function Z0t (please keep the name at it is) which take as parameter a integer n and return a string of character corresponding to the code « Z0 truncated » of n as described previously.
+
+Test your function with the values given above.
+
+4.5 Function Z1
+In order to avoid any ambiguity of the Z0 encoding, Elias first idea was to add as many zero before Z0(n) than its length minus 1 :
+
+n	1	2	3	4	5	6	7	8
+Z1(n)	1	010	011	00100	00101	00110	00111	0001000
+For example, the code Z0 of 1 is 1 ; its length is 1 and its length minus 1 is 0. Therefore we add nothing in front and the code Z1 is also 1.
+
+Another example : the Z0 encoding of 7 is 111 ; its length is 3 and its length minus 1 is 2. Therefore, we should add two zeros in front and its Z1 encoding will be 00111.
+
+Create a function Z1 (be careful to respect the nomenclature) which is taking an integer n as parameter and return a string of character corresponding to the Z1 encoding of n as describe previously. It is in fact easier to write it in C++ than in English ;-).
+
+Test your function with the values given above.
+
+4.6 Function Z2
+The Z1 encoding is unambiguous but it is not really brief. The intelligent "trick" used by Elias to shorten the code was to change the encoding of the length using a sequence of zeros by the Z1 encoding of this same length. The Z2 encoding of n will then be a concatenation of the Z1 encoding of the Z0(n) length and the « Z0 truncated » encoding of n itself.
+
+For example, 7 is encoded by 111 by Z0, so it has a length of 3. This give us the prefix Z1(3)=011, and the suffix 11, which corresponds to the « Z0 truncated » of 7. The Z2 encoding of 7 is therefore 01111 (=011,11). Below are other examples :
+
+n	1	2	3	4	5	6	7	8
+Z2(n)	1	0100	0101	01100	01101	01110	01111	00100000
+At the end, create the function Z2 (beware of the nomenclature) which is taking an integer n as parameter and return a string of character corresponding to the Z2 encoding of n as it is described previously. Again, it is much easier to write this in C++ than it first looks like!
+
+Test your function with the value given above. As another example, here is the encodings of 255 :
+
+ Z0  : 11111111
+ Z0t : 1111111
+ Z1  : 000000011111111
+ Z2  : 00010001111111
+Note: In order to be graded, your program shall have a main() function that compiles, whatever it is, even empty.
